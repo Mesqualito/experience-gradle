@@ -1,10 +1,70 @@
+// it seems only 'core'-plugins allowed here
 plugins {
     id 'java'
 }
+
+
+// Apply custom plugin
+apply plugin: SourceSetPlugin
 
 group 'com.eigenbaumarkt'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
+// will an additional declared directory rollout the 
+// 'java'-plugin sourceSets ? - No, it will not...
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java/do_it'
+        }
+    }
+}
 
+class SourceSetPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        
+        project.task('reApplySourceSet') {
+            doLast {
+                sourceSets {
+                    main {
+                        java {
+                            // default production Java source.
+                            srcDirs = ['src/main/java']
+                        }
+                        resources {
+                            // default production resources, such as XML and properties files
+                            srcDirs = ['src/main/resources']
+                        }
+                    }
+
+                    test {
+                        java {
+                            // default test Java source
+                            srcDirs = ['src/test/java']
+                        }
+                        resources {
+                            // default test resources
+                            srcDirs = ['src/test/resources']
+                        }
+                    }
+
+                    sourceSet {
+                        java {
+                            // Java sources for the source set named 'sourceSet'
+                            srcDirs = ['src/sourceSet/java']
+                        }
+                        resources {
+                            // resources for the source set named 'sourceSet'
+                            srcDirs = ['src/test/resources']
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+    }
+}
