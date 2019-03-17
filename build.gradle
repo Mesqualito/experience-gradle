@@ -1,15 +1,13 @@
 
-task first {
+
+task world {
+    dependsOn 'hello'
     doLast {
-        println 'Hello world!'
+        println 'World!'
     }
 }
-
-task last {
-    dependsOn first
+task hello {
     doLast {
-        println "I'm Gradle"
+        println 'Hello '
     }
 }
-
-
