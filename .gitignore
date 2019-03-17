@@ -1,23 +1,124 @@
-# Compiled class file
-*.class
+# ----- project specific -----
+/build/www/**
+/src/test/javascript/coverage/
 
-# Log file
-*.log
+# ----- node -----
+/node/
+node_tmp/
+node_modules/
+npm-debug.log.*
+/.awcache/*
+/.cache-loader/*
 
-# BlueJ files
-*.ctxt
+# ----- SASS -----
+.sass-cache/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# ----- Eclipse -----
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
 
-# Package Files #
+# ----- external tool builders -----
+.externalToolBuilders/**
+
+# ----- locally stored "Eclipse launch configurations" -----
+*.launch
+
+# ----- CDT-specific -----
+.cproject
+
+# ----- PDT-specific -----
+.buildpath
+
+# ----- Intellij -----
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
+
+# ----- Maven -----
+/log/
+/target/
+
+# ----- Gradle -----
+.gradle/
+/build/
+
+# ----- package files -----
 *.jar
 *.war
-*.nar
 *.ear
+*.db
+*.nar
 *.zip
 *.tar.gz
 *.rar
+*.tgz
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# ----- Windows -----
+Thumbs.db
+Desktop.ini
+
+# ----- Visual Studio Code -----
+.vscode/
+
+# ----- MacOSX -----
+.DS_Store
+.svn
+._*
+
+# ----- files on external disks -----
+.Spotlight-V100
+.Trashes
+
+# ----- directories -----
+/bin/
+/deploy/
+
+# ----- logs -----
+*.log*
+
+# ----- Gradle wrapper -----
+!gradle/wrapper/gradle-wrapper.jar
+
+# ----- Maven wrapper -----
+!.mvn/wrapper/maven-wrapper.jar
+
+# ----- ESLint -----
+.eslintcache
+
+# ----- compiled class file -----
+*.class
+
+# ----- BlueJ files -----
+*.ctxt
+
+# ----- mobile tools for Java (J2ME) -----
+.mtj.tmp/
+
+# ----- virtual machine crash logs -----
 hs_err_pid*
+
+# ----- docker env's -----
+*.env
+
+# ----- others -----
+*.*~
+*~
+.merge_file*
