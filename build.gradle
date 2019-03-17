@@ -17,6 +17,15 @@ tasks.register("hello") {
     }
 }
 
+tasks.register("gutenTag", Greeting) {
+    group = 'welcome-group'
+    description = 'Produces a German greeting'
+
+    interpolate = 'Hallo'
+    recipient = 'Welt'
+}
+
+
 class Greeting extends DefaultTask {
     String interpolate
     String recipient
