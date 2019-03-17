@@ -1,11 +1,11 @@
 
-tasks.register("world") {
+tasks.register("world", Greeting) {
     group = 'welcome-group'
     description = 'I will not be executed without executing \'hello\' first'
     dependsOn 'hello'
-    doLast {
-        println 'World!'
-    }
+
+    interpolate = 'new'
+    recipient = 'World!'
 }
 
 tasks.register("hello") {
@@ -13,6 +13,16 @@ tasks.register("hello") {
     description = 'I may be executed stand-alone. But remember, you can declare me after' +
             'all tasks that depend on me, but you cannot delete me before deleting task \'hello\' first.'
     doLast {
-        println 'Hello '
+        println 'Hello'
+    }
+}
+
+class Greeting extends DefaultTask {
+    String interpolate
+    String recipient
+
+    @TaskAction
+    void sayGreeting() {
+        println " ${interpolate} ${recipient}!"
     }
 }
