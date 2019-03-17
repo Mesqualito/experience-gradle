@@ -7,30 +7,4 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-// standard sourceSet 'java'-plugin:
-// (can be changed by declaring other paths!)
-/*sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-        }
-    }
 
-    test {
-        java {
-            srcDirs = ['test']
-        }
-    }
-}*/
-
-
-// custom (eventually additively) source-Set-definition
-// using the method srcDir() here to append a directory path
-// instead of setting the srcDirs property as above which replaces any existing values
-sourceSets {
-    main {
-        java {
-            srcDir 'thirdParty/src/main/java'
-        }
-    }
-}
