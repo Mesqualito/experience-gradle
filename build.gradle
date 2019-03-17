@@ -1,37 +1,36 @@
-
-tasks.register("world", Greeting) {
-    group = 'welcome-group'
-    description = 'I will not be executed without executing \'hello\' first'
-    dependsOn 'hello'
-
-    interpolate = 'new'
-    recipient = 'World!'
+plugins {
+    id 'java'
 }
 
-tasks.register("hello") {
-    group = 'welcome-group'
-    description = 'I may be executed stand-alone. But remember, you can declare me after' +
-            'all tasks that depend on me, but you cannot delete me before deleting task \'hello\' first.'
-    doLast {
-        println 'Hello'
+group 'com.eigenbaumarkt'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+// standard sourceSet 'java'-plugin:
+// (can be changed by declaring other paths!)
+/*sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
     }
-}
 
-tasks.register("gutenTag", Greeting) {
-    group = 'welcome-group'
-    description = 'Produces a German greeting'
-
-    interpolate = 'Hallo'
-    recipient = 'Welt'
-}
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}*/
 
 
-class Greeting extends DefaultTask {
-    String interpolate
-    String recipient
-
-    @TaskAction
-    void sayGreeting() {
-        println " ${interpolate} ${recipient}!"
+// custom (eventually additively) source-Set-definition
+// using the method srcDir() here to append a directory path
+// instead of setting the srcDirs property as above which replaces any existing values
+sourceSets {
+    main {
+        java {
+            srcDir 'thirdParty/src/main/java'
+        }
     }
 }
