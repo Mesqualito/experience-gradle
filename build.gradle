@@ -1,22 +1,15 @@
 
-task hello {
+task first {
     doLast {
         println 'Hello world!'
     }
 }
 
-// use full Groovy (or Kotlin) power in
-// gradle build configuration scripts
-task upper {
+task last {
+    dependsOn first
     doLast {
-        String someString = 'mY_nAmE'
-        println "Original: $someString"
-        println "Upper case: ${someString.toUpperCase()}"
+        println "I'm Gradle"
     }
 }
 
-task count {
-    doLast {
-        4.times { print "$it " }
-    }
-}
+
