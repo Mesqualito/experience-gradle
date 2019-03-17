@@ -1,7 +1,6 @@
 
-
 tasks.register("world") {
-    group = 'weclome-group'
+    group = 'welcome-group'
     description = 'I will not be executed without executing \'hello\' first'
     dependsOn 'hello'
     doLast {
@@ -10,7 +9,7 @@ tasks.register("world") {
 }
 
 tasks.register("hello") {
-    group = 'welchome-group'
+    group = 'welcome-group'
     description = 'I may be executed stand-alone. But remember, you can declare me after' +
             'all tasks that depend on me, but you cannot delete me before deleting task \'hello\' first.'
     doLast {
