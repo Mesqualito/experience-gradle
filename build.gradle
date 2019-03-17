@@ -7,40 +7,5 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-sourceSets {
-    main {
-        java {
-            // default production Java source.
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            // default production resources, such as XML and properties files
-            srcDirs = ['src/main/resources']
-        }
-    }
-
-    test {
-        java {
-            // default test Java source
-            srcDirs = ['src/test/java']
-        }
-        resources {
-            // default test resources
-            srcDirs = ['src/test/resources']
-        }
-    }
-
-    sourceSet {
-        java {
-            // Java sources for the source set named 'sourceSet'
-            srcDirs = ['src/sourceSet/java']
-        }
-        resources {
-            // resources for the source set named 'sourceSet'
-            srcDirs = ['src/test/resources']
-        }
-
-    }
-}
 
 
